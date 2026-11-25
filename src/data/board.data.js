@@ -9,8 +9,4 @@ export const ORTHOGONAL_OFFSETS = Object.freeze([
   { dRow: 0, dCol: 1 },
 ]);
 
-export const ALL_OFFSETS = Object.freeze(
-  [-1, 0, 1]
-    .flatMap((dRow) => [-1, 0, 1].map((dCol) => ({ dRow, dCol })))
-    .filter(({ dRow, dCol }) => dRow !== 0 || dCol !== 0),
-);
+export const COLUMN_LABELS = Object.freeze(['А', 'Б', 'В', 'Г', 'Д', 'Е', 'Ж', 'З', 'И', 'К']);

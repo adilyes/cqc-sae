@@ -7,3 +7,10 @@ export function randomInt(min, max) {
   }
   return Math.floor(Math.random() * (max - min + 1)) + min;
 }
+
+export function pickRandom(items, rng = Math.random) {
+  if (items.length === 0) {
+    throw new RangeError('pickRandom: cannot pick from an empty list');
+  }
+  return items[Math.floor(rng() * items.length)];
+}

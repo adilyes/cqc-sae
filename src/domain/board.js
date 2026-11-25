@@ -1,4 +1,4 @@
-import { ALL_OFFSETS, BOARD_SIZE, ORTHOGONAL_OFFSETS } from '../data/board.data.js';
+import { BOARD_SIZE, ORTHOGONAL_OFFSETS } from '../data/board.data.js';
 import { CELL_STATE } from '../data/cell-state.data.js';
 
 const keyOf = ({ row, col }) => `${row}:${col}`;
@@ -33,10 +33,11 @@ export class Board {
     }
   }
 
-  neighbors(row, col, offsets = ORTHOGONAL_OFFSETS) {
-    return offsets
-      .map(({ dRow, dCol }) => ({ row: row + dRow, col: col + dCol }))
-      .filter((cell) => this.isInBounds(cell.row, cell.col));
+  neighbors(row, col) {
+    return ORTHOGONAL_OFFSETS.map(({ dRow, dCol }) => ({
+      row: row + dRow,
+      col: col + dCol,
+    })).filter((cell) => this.isInBounds(cell.row, cell.col));
   }
 
   surroundings(row, col) {
